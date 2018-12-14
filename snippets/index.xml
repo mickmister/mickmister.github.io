@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Snippets on Michael Kochell</title>
+    <link>/snippets/</link>
+    <description>Recent content in Snippets on Michael Kochell</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/snippets/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quick Google search from terminal</title>
+      <link>/snippets/google-search-in-terminal/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/snippets/google-search-in-terminal/</guid>
+      <description>Note: this only applies to MacOS
+Often times while I&amp;rsquo;m working on a project, I&amp;rsquo;ll need to search for something on the internet to solve a problem. I usually use the search engine created by Google, called Google. When I need to search for something, I always have to stop what I&amp;rsquo;m doing, and switch over to a browser to type in my search. This may not seem like a big deal because it doesn&amp;rsquo;t take that much time, but in reality this is a context switch.</description>
+    </item>
+    
+    <item>
+      <title>Sharing Context with React Portals</title>
+      <link>/snippets/react-context-portals/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/snippets/react-context-portals/</guid>
+      <description>State management in React is a widely discussed topic on the internet. While the most common approach for large applications seems to be Redux, there has been a lot of attention on the improvements of the React Context API. Using render props, we can now access state being held far up the tree with ease. For a single page application, this is ideal because the whole application is one tree.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Michael Kochell  | Sharing Context with React Portals</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.48" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.ab4b67a3ea25990fa8279f3b7ef08b61.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="Sharing Context with React Portals" />
+<meta property="og:description" content="Throw me the data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/snippets/react-context-portals/" /><meta property="article:published_time" content="2018-10-24T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-10-24T00:00:00&#43;00:00"/>
+<meta itemprop="name" content="Sharing Context with React Portals">
+<meta itemprop="description" content="Throw me the data.">
+
+
+<meta itemprop="datePublished" content="2018-10-24T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-10-24T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="518">
+
+
+
+<meta itemprop="keywords" content="programming," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Sharing Context with React Portals"/>
+<meta name="twitter:description" content="Throw me the data."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('/images/portal.jpg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Michael Kochell
+    </a>
+    <div class="flex-l items-center">
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/projects/" title="Projects page">
+              Projects
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/snippets/" title="Snippets page">
+              Snippets
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+  <a href="https://twitter.com/drparse" class="link-transition twitter link dib z-999 pt3 pt0-l mr2" title="Twitter link">
+    <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+  </a>
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Sharing Context with React Portals</h1>
+        
+          <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+            Throw me the data.
+          </h2>
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  <article class="flex-l flex-wrap justify-between mw8 center ph3 ph0-l">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        SNIPPETS
+      </p>
+      <h1 class="f1 athelas mb1">Sharing Context with React Portals</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2018-10-24T00:00:00Z">October 24, 2018</time>
+    </header>
+
+    <main class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<p>State management in React is a widely discussed topic on the internet. While the most common approach for large applications seems to be Redux, there has been a lot of attention on the improvements of the React Context API. Using render props, we can now access state being held far up the tree with ease. For a single page application, this is ideal because the whole application is one tree.</p>
+
+<p>However, if you are mounting several trees of components throughout the page (in my case I&rsquo;m using Ruby on Rails and Webpacker React to render the components), the different trees cannot use the same provider as a common ancestor. Hence, they cannot share the same state. So how do we get the different trees to play nicely together?</p>
+
+<h3 id="react-context-react-portals">React Context + React Portals</h3>
+
+<p>Using a syntax very similar to:</p>
+
+<p><code>ReactDOM.render(&lt;MyComponent /&gt;, domElement);</code></p>
+
+<p>We can use</p>
+
+<p><code>const PortalComponent = React.createPortal(&lt;MyComponent /&gt;, domElement);</code></p>
+
+<p>to render multiple components in the same React tree, among different isolated parts of the DOM. Using <code>React.createPortal()</code> we can create a new React component to be rendered at the specified DOM node.</p>
+
+<p>What&rsquo;s different about <code>createPortal()</code> when compared to <code>ReactDOM.render()</code>, is that the component is not rendered at the point of calling <code>createPortal()</code>. We use the return value of <code>React.createPortal()</code> (a new React component), and render it in our tree. Here&rsquo;s an example where we are rendering components with different entry points throughout the page:</p>
+
+<pre><code>/* first let's define a context to share */
+/* important_value_context.jsx */
+
+import React from 'react'
+
+const Context = React.createContext({})
+
+class ImportantValueProvider extends React.PureComponent {
+
+  state = {
+    importantValue: 'Cake is good',
+    updateImportantValue: this.updateImportantValue,
+  }
+
+  updateImportantValue = importantValue =&gt; this.setState({importantValue})
+
+  render() {
+    return (
+      &lt;Context.Provider value={this.state}&gt;
+        {this.props.children}
+      &lt;/Context.Provider&gt;
+    )
+  }
+}
+
+export default {
+  Provider: ImportantValueProvider,
+  Consumer: Context.Consumer,
+}
+
+
+/* main.jsx */
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import ImportantValueContext from 'path/to/important_value_context'
+import CoolComponent from 'path/to/cool_component'
+import SuperCoolComponent from 'path/to/super_cool_component'
+
+const Main = () =&gt; {
+
+  const ComponentA = ReactDOM.createPortal(
+    &lt;CoolComponent /&gt;,
+    document.getElementById('banner'),
+  )
+
+  const ComponentB = ReactDOM.createPortal(
+    &lt;SuperCoolComponent /&gt;,
+    document.getElementById('footer'),
+  )
+
+  return (
+    &lt;ImportantValueContext.Provider&gt;
+      &lt;ComponentA /&gt;
+      &lt;ComponentB /&gt;
+    &lt;/ImportantValueContext.Provider&gt;
+  )
+}
+
+ReactDOM.render(
+  &lt;Main /&gt;,
+  document.getElementById('main'),
+)
+</code></pre>
+
+<p>Instead of making two calls to <code>ReactDOM.render()</code>, we create two portals and render both under our top-level Provider. <code>ComponentA</code> and <code>ComponentB</code> will be rendered in two different points in the DOM, but they share the same React tree, thanks to portals. They can both import <code>ImportantValueContext</code> and reference its consumer to communicate with the same instance of <code>ImportantValueContext</code>.</p>
+
+<pre><code>/* cool_component.jsx */
+
+import React from 'react'
+
+import ImportantValueContext from 'path/to/important_value_context'
+
+class CoolComponent extends React.PureComponent {
+  render() {
+    return (
+      &lt;ImportantValueContext.Consumer&gt;
+        {sharedState =&gt; (
+          &lt;div&gt;
+            &lt;input
+              value={sharedState.importantValue}
+              onChange={e =&gt; sharedState.updateImportantValue(e.target.value)}
+            /&gt;
+          &lt;/div&gt;
+        )}
+      &lt;/ImportantValueContext.Consumer&gt;
+    )
+  }
+}
+
+export default CoolComponent
+
+
+/* super_cool_component.jsx */
+
+import React from 'react'
+
+import ImportantValueContext from 'path/to/important_value_context'
+
+class SuperCoolComponent extends React.PureComponent {
+  render() {
+    return (
+      &lt;ImportantValueContext.Consumer&gt;
+        {sharedState =&gt; (
+          &lt;h1&gt;{sharedState.importantValue}&lt;/h1&gt;
+        )}
+      &lt;/ImportantValueContext.Consumer&gt;
+    )
+  }
+}
+
+export default SuperCoolComponent
+</code></pre>
+
+<p>Now <code>CoolComponent</code> and <code>SuperCoolComponent</code> can share state with the same ImportantValueProvider. That&rsquo;s fantastic news if you plan on sprinkling components into an existing webpage&hellip; if you&rsquo;re into that sort of thing.</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="/tags/programming" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">programming</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+        
+      </div>
+    </main>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/snippets/google-search-in-terminal/">Quick Google search from terminal</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/projects/portfolio/">Portfolio</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/" >
+    &copy; 2018 Michael Kochell
+  </a>
+    <div>
+
+
+
+  <a href="https://twitter.com/drparse" class="link-transition twitter link dib z-999 pt3 pt0-l mr2" title="Twitter link">
+    <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+  </a>
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

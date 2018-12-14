@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google on Michael Kochell</title>
+    <link>/tags/google/</link>
+    <description>Recent content in Google on Michael Kochell</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/google/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quick Google search from terminal</title>
+      <link>/snippets/google-search-in-terminal/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/snippets/google-search-in-terminal/</guid>
+      <description>Note: this only applies to MacOS
+Often times while I&amp;rsquo;m working on a project, I&amp;rsquo;ll need to search for something on the internet to solve a problem. I usually use the search engine created by Google, called Google. When I need to search for something, I always have to stop what I&amp;rsquo;m doing, and switch over to a browser to type in my search. This may not seem like a big deal because it doesn&amp;rsquo;t take that much time, but in reality this is a context switch.</description>
+    </item>
+    
+  </channel>
+</rss>
