@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming on Michael Kochell</title>
+    <title>Programming on Kochell Software</title>
     <link>/tags/programming/</link>
-    <description>Recent content in Programming on Michael Kochell</description>
+    <description>Recent content in Programming on Kochell Software</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 24 Oct 2018 00:00:00 +0000</lastBuildDate>
@@ -28,18 +28,6 @@ Often times while I&amp;rsquo;m working on a project, I&amp;rsquo;ll need to sea
       
       <guid>/snippets/react-context-portals/</guid>
       <description>State management in React is a widely discussed topic on the internet. While the most common approach for large applications seems to be Redux, there has been a lot of attention on the improvements of the React Context API. Using render props, we can now access state being held far up the tree with ease. For a single page application, this is ideal because the whole application is one tree.</description>
-    </item>
-    
-    <item>
-      <title>Portfolio</title>
-      <link>/projects/portfolio/</link>
-      <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/portfolio/</guid>
-      <description>Here are some projects I have worked in the past couple of years. Some are personal projects, and some are projects from school.
-Jam App Repo: https://gitlab.com/mjkochell/jam-app
-A music application used to make playing music and improvising with others easier. It allows users to build progressions on the fly and distribute them among other members&amp;rsquo; devices to visually show the structure of what is to come.
-It also sends midi information to instruments and allows the user to control which notes should be held out.</description>
     </item>
     
   </channel>
